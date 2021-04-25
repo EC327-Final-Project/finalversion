@@ -59,13 +59,23 @@ int main() {
   sprite3.setTexture(texture3);
   sprite3.setOrigin(sf::Vector2f(16.f, 70.f));
   sprite3.scale(0.75f,0.75f);
+  sf::Image image4;
+  image4.loadFromFile("background.jpg");
+  sf::Texture texture4;
+  texture4.loadFromImage(image4);
+  sf::Sprite sprite4;
+  sprite4.setTexture(texture4);
+  sprite4.setOrigin(sf::Vector2f(15.f, 180.f));
+  sprite4.scale(2.80f,2.80f);
+  sprite4.setRotation(90.f);
+
 
 
   // Title declarations
   sf::Text title;
   title.setFont(font);
   title.setFillColor(sf::Color::White);
-  title.setOutlineColor(sf::Color(39, 121, 21));
+  title.setOutlineColor(sf::Color::Black);
   title.setOutlineThickness(2);
   title.setPosition(135, 4);
 
@@ -111,34 +121,6 @@ int main() {
   homelabel.setOutlineThickness(0.2);
   homelabel.setPosition(210, 18);
 
-  // Health and Effects button and label declarations
-  sf::RectangleShape health(sf::Vector2f(bheight, bwidth));
-  health.setPosition(150, 230);
-  health.setFillColor(sf::Color::White);
-  health.setRotation(90);
-  health.setOutlineColor(sf::Color::Black);
-  health.setOutlineThickness(2);
-  sf::Text healthlabel;
-  healthlabel.setFont(font);
-  healthlabel.setFillColor(sf::Color(39, 121, 21));
-  healthlabel.setOutlineColor(sf::Color::Black);
-  healthlabel.setOutlineThickness(0.2);
-  healthlabel.setPosition(150+3-bwidth, 230 + 10);
-
-  // Blazing: How and What button and label declarations
-  sf::RectangleShape blaze(sf::Vector2f(bheight, bwidth));
-  blaze.setPosition(450, 230);
-  blaze.setFillColor(sf::Color::White);
-  blaze.setRotation(90);
-  blaze.setOutlineColor(sf::Color::Black);
-  blaze.setOutlineThickness(2);
-  sf::Text blazelabel;
-  blazelabel.setFont(font);
-  blazelabel.setFillColor(sf::Color(39, 121, 21));
-  blazelabel.setOutlineColor(sf::Color::Black);
-  blazelabel.setOutlineThickness(0.2);
-  blazelabel.setPosition(450+6-bwidth, 230 + 8);
-
   // Locations button and label declarations
   sf::RectangleShape location(sf::Vector2f(bheight, bwidth));
   location.setPosition(150, 330);
@@ -151,7 +133,7 @@ int main() {
   locationlabel.setFillColor(sf::Color(39, 121, 21));
   locationlabel.setOutlineColor(sf::Color::Black);
   locationlabel.setOutlineThickness(0.2);
-  locationlabel.setPosition(150+9-bwidth, 330 + 2);
+  locationlabel.setPosition(150+8-bwidth, 330 + 2);
 
   // Survey button and label declarations
   sf::RectangleShape survey(sf::Vector2f(bheight, bwidth));
@@ -295,6 +277,63 @@ int main() {
   woutlabel.setOutlineThickness(0.2);
   woutlabel.setPosition(450+4-bwidth, 400 + 9);
 
+  // medical button and label declarations
+  sf::RectangleShape medical(sf::Vector2f(bheight, bwidth));
+  medical.setPosition(450, 230);
+  medical.setFillColor(sf::Color::White);
+  medical.setRotation(90);
+  medical.setOutlineColor(sf::Color::Black);
+  medical.setOutlineThickness(2);
+  sf::Text medlabel;
+  medlabel.setFont(font);
+  medlabel.setFillColor(sf::Color(39, 121, 21));
+  medlabel.setOutlineColor(sf::Color::Green);
+  medlabel.setOutlineThickness(0.2);
+  medlabel.setPosition(450+6-bwidth, 230 + 1); // Weird numbers for formatting
+
+  // Effects button and label declarations
+  sf::RectangleShape effect(sf::Vector2f(bheight, bwidth));
+  effect.setPosition(150, 230);
+  effect.setFillColor(sf::Color::White);
+  effect.setRotation(90);
+  effect.setOutlineColor(sf::Color::Black);
+  effect.setOutlineThickness(2);
+  sf::Text effectlabel;
+  effectlabel.setFont(font);
+  effectlabel.setFillColor(sf::Color(39, 121, 21));
+  effectlabel.setOutlineColor(sf::Color::White);
+  effectlabel.setOutlineThickness(0.2);
+  effectlabel.setPosition(150+11-bwidth, 230 + 3); // Weird numbers for formatting
+
+  //THC VS CBD 
+  sf::RectangleShape types(sf::Vector2f(bheight, bwidth));
+  types.setPosition(450, 430);
+  types.setFillColor(sf::Color::White);
+  types.setRotation(90);
+  types.setOutlineColor(sf::Color::Black);
+  types.setOutlineThickness(2);
+  sf::Text typelabel;
+  typelabel.setFont(font);
+  typelabel.setFillColor(sf::Color(39, 121, 21));
+  typelabel.setOutlineColor(sf::Color::Black);
+  typelabel.setOutlineThickness(0.2);
+  typelabel.setPosition(450+1-bwidth,430 + 4);
+
+
+  //Ways of Using 
+  sf::RectangleShape waysofuse(sf::Vector2f(bheight, bwidth));
+  waysofuse.setPosition(150, 430);
+  waysofuse.setFillColor(sf::Color::White);
+  waysofuse.setRotation(90);
+  waysofuse.setOutlineColor(sf::Color::Black);
+  waysofuse.setOutlineThickness(2);
+  sf::Text uselabel;
+  uselabel.setFont(font);
+  uselabel.setFillColor(sf::Color(39, 121, 21));
+  uselabel.setOutlineColor(sf::Color::Black);
+  uselabel.setOutlineThickness(0.2);
+  uselabel.setPosition(150+6-bwidth, 430+5);
+
   // Next Page button and label declarations
   sf::RectangleShape next(sf::Vector2f(bheight, bwidth));
   next.setPosition(430, 400);
@@ -325,14 +364,6 @@ int main() {
     convlabel.setString("Conviction Erasure");
     convlabel.setCharacterSize(11);
     window.draw(convlabel);
-    window.draw(health);
-    healthlabel.setString("Health and Effects");
-    healthlabel.setCharacterSize(11);
-    window.draw(healthlabel);
-    window.draw(blaze);
-    blazelabel.setString("How and What");
-    blazelabel.setCharacterSize(13);
-    window.draw(blazelabel);
     window.draw(location);
     locationlabel.setString("Locations");
     locationlabel.setCharacterSize(19);
@@ -341,6 +372,22 @@ int main() {
     surveylabel.setString("Strains");
     surveylabel.setCharacterSize(20);
     window.draw(surveylabel);
+    window.draw(medical);
+    medlabel.setString("Medical \nApplications");
+    medlabel.setCharacterSize(13);
+    window.draw(medlabel);
+    window.draw(effect);
+    effectlabel.setString("Effects");
+    effectlabel.setCharacterSize(20);
+    window.draw(effectlabel);
+    window.draw(types);
+    typelabel.setString("THC vs CBD");
+    typelabel.setCharacterSize(18);
+    window.draw(typelabel);
+    window.draw(waysofuse);
+    uselabel.setString("Ways to Use");
+    uselabel.setCharacterSize(15);
+    window.draw(uselabel);
     window.display();
     window.clear(sf::Color(137, 197, 125));
 
@@ -926,10 +973,6 @@ int main() {
                         window.draw(test);
                         window.display();
                         while(window.pollEvent(event)) {
-                          while (isMouseOver(window, sleep) && pcount == 0) {
-                            usleep(microsec*0.75);
-                            pcount++;
-                          }
                           if(event.type == sf::Event::Closed) {
                             window.close();
                           }
@@ -976,10 +1019,6 @@ int main() {
                         window.draw(test);
                         window.display();
                         while(window.pollEvent(event)) {
-                          while (isMouseOver(window, anxiety) && pcount == 0) {
-                            usleep(microsec*0.75);
-                            pcount++;
-                          }
                           if(event.type == sf::Event::Closed) {
                             window.close();
                           }
@@ -1026,10 +1065,6 @@ int main() {
                         window.draw(test);
                         window.display();
                         while(window.pollEvent(event)) {
-                          while (isMouseOver(window, munchies) && pcount == 0) {
-                            usleep(microsec*0.75);
-                            pcount++;
-                          }
                           if(event.type == sf::Event::Closed) {
                             window.close();
                           }
@@ -1076,10 +1111,6 @@ int main() {
                         window.draw(test);
                         window.display();
                         while(window.pollEvent(event)) {
-                          while (isMouseOver(window, prod) && pcount == 0) {
-                            usleep(microsec*0.75);
-                            pcount++;
-                          }
                           if(event.type == sf::Event::Closed) {
                             window.close();
                           }
@@ -1126,10 +1157,6 @@ int main() {
                         window.draw(test);
                         window.display();
                         while(window.pollEvent(event)) {
-                          while (isMouseOver(window, seniors) && pcount == 0) {
-                            usleep(microsec*0.75);
-                            pcount++;
-                          }
                           if(event.type == sf::Event::Closed) {
                             window.close();
                           }
@@ -1176,10 +1203,6 @@ int main() {
                         window.draw(test);
                         window.display();
                         while(window.pollEvent(event)) {
-                          while (isMouseOver(window, sex) && pcount == 0) {
-                            usleep(microsec*0.75);
-                            pcount++;
-                          }
                           if(event.type == sf::Event::Closed) {
                             window.close();
                           }
@@ -1226,10 +1249,6 @@ int main() {
                         window.draw(test);
                         window.display();
                         while(window.pollEvent(event)) {
-                          while (isMouseOver(window, wout) && pcount == 0) {
-                            usleep(microsec*0.75);
-                            pcount++;
-                          }
                           if(event.type == sf::Event::Closed) {
                             window.close();
                           }
@@ -1264,6 +1283,203 @@ int main() {
           }
         } else {
           survey.setFillColor(sf::Color::White);
+        }
+
+        // Medical button click
+        if (isMouseOver(window, medical)) {
+          medical.setFillColor(sf::Color::Black);
+          if (event.mouseButton.button == sf::Mouse::Left) {
+            medical.setFillColor(sf::Color::White);
+            home.setFillColor(sf::Color::White);
+            while(window.isOpen()) {
+              window.clear(sf::Color(137, 197, 125));
+              window.draw(sprite4);
+              window.draw(home);
+              homelabel.setString("Back to Home");
+              homelabel.setCharacterSize(12);
+              window.draw(homelabel);
+              sf::Text test;
+              test.setFont(font);
+              test.setFillColor(sf::Color::Black);
+              test.setOutlineColor(sf::Color::White);
+              test.setOutlineThickness(0.5);
+              test.setPosition(25, 100);
+              test.setCharacterSize(18);
+              test.setString("The main usage of marijuana in the medical aspect\nis for pain control!\n ~Lessens tremors in Parkinso's disease\n ~Also been used to help treat\nFibromyalgia, endometriosis, \nand intersitital cystitis\nThere has also been research in helping PTSD in veterans\nMarijuana can also be used to help nausea and appetite");
+              window.draw(test);
+              window.display();
+              while(window.pollEvent(event)) {
+                if(event.type == sf::Event::Closed) {
+                  window.close();
+                }
+                if (sf::Event::MouseButtonPressed) {
+                  if (isMouseOver(window, home)) {
+                    home.setFillColor(sf::Color::Black);
+                    if (event.mouseButton.button == sf::Mouse::Left) {
+                      count++;
+                      break;
+                    }
+                  } else {
+                        home.setFillColor(sf::Color::White);
+                  }
+                }
+              }
+              if (count > 0) {
+                window.clear(sf::Color(137, 197, 125));
+                break;
+              }
+            }
+          }
+        } else {
+            medical.setFillColor(sf::Color::White);
+        }
+
+        // Effect button click
+        if (isMouseOver(window, effect)) {
+          effect.setFillColor(sf::Color::Black);
+          if (event.mouseButton.button == sf::Mouse::Left) {
+            effect.setFillColor(sf::Color::White);
+            home.setFillColor(sf::Color::White);
+            while(window.isOpen()) {
+              window.clear(sf::Color(137, 197, 125));
+              window.draw(sprite4);
+              window.draw(home);
+              homelabel.setString("Back to Home");
+              homelabel.setCharacterSize(12);
+              window.draw(homelabel);
+              sf::Text test;
+              test.setFont(font);
+              test.setFillColor(sf::Color::Black);
+              test.setOutlineColor(sf::Color::White);
+              test.setOutlineThickness(0.5);
+              test.setPosition(25, 100);
+              test.setCharacterSize(18);
+              test.setString("SHORT TERM EFFECTS\n ~~altered senses\n ~~Altered senses of time\n ~~Changes in mood\n ~~Sometimes if taken in high doses, hallucinations\nmay occur\n LONG TERM EFFECTS\n ~~Can lead to anxiety\n ~~Can affect brain development\n ~~May impair thinking,memory, and learning functions\n");
+              window.draw(test);
+              window.display();
+              while(window.pollEvent(event)) {
+                if(event.type == sf::Event::Closed) {
+                  window.close();
+                }
+                if (sf::Event::MouseButtonPressed) {
+                  if (isMouseOver(window, home)) {
+                    home.setFillColor(sf::Color::Black);
+                    if (event.mouseButton.button == sf::Mouse::Left) {
+                      count++;
+                      break;
+                    }
+                  } else {
+                        home.setFillColor(sf::Color::White);
+                  }
+                }
+              }
+              if (count > 0) {
+                window.clear(sf::Color(137, 197, 125));
+                break;
+              }
+            }
+          }
+        } else {
+            effect.setFillColor(sf::Color::White);
+        }
+
+        //THC VS CBD buttons clicks
+        if (isMouseOver(window, types)) {
+          types.setFillColor(sf::Color::Black);
+          if (event.mouseButton.button == sf::Mouse::Left) {
+            types.setFillColor(sf::Color::White);
+            home.setFillColor(sf::Color::White);
+            while(window.isOpen()) {
+              window.clear(sf::Color(137, 197, 125));
+              window.draw(sprite4);
+              window.draw(home);
+              homelabel.setString("Back to Home");
+              homelabel.setCharacterSize(12);
+              window.draw(homelabel);
+              sf::Text test;
+              test.setFont(font);
+              test.setFillColor(sf::Color::Black);
+              test.setOutlineColor(sf::Color::White);
+              test.setOutlineThickness(0.5);
+              test.setPosition(25, 100);
+              test.setCharacterSize(18);
+              test.setString("CBD\n ~~Stands for Cannabidiol\n ~~Binds weakly to CB1 receptors\n ~~Became popular for natural treatment\n ~~Derived from HEMP or marijuana\n ~~Not psychoactive(doesn't lead to high)\n ~~More used for anxiety, depression or migraines\n THC\n ~~Stands for Tetrahydrocannabinol\n ~~Binds to CB1 recpetor which produces a high\n ~~Psychoactive, produces a high\n ~~More for glaucoma,insomnia, nausea ETC\n");
+              window.draw(test);
+              window.display();
+              while(window.pollEvent(event)) {
+                if(event.type == sf::Event::Closed) {
+                  window.close();
+                }
+                if (sf::Event::MouseButtonPressed) {
+                  if (isMouseOver(window, home)) {
+                    home.setFillColor(sf::Color::Black);
+                    if (event.mouseButton.button == sf::Mouse::Left) {
+                      count++;
+                      break;
+                    }
+                  } else {
+                        home.setFillColor(sf::Color::White);
+                  }
+                }
+              }
+              if (count > 0) {
+                window.clear(sf::Color(137, 197, 125));
+                break;
+              }
+            }
+          }
+        } else {
+            types.setFillColor(sf::Color::White);
+        }
+
+        //ways of using button click
+
+        if (isMouseOver(window, waysofuse)) {
+          waysofuse.setFillColor(sf::Color::Black);
+          if (event.mouseButton.button == sf::Mouse::Left) {
+            waysofuse.setFillColor(sf::Color::White);
+            home.setFillColor(sf::Color::White);
+            while(window.isOpen()) {
+              window.clear(sf::Color(137, 197, 125));
+              window.draw(sprite4);
+              window.draw(home);
+              homelabel.setString("Back to Home");
+              homelabel.setCharacterSize(12);
+              window.draw(homelabel);
+              sf::Text test;
+              test.setFont(font);
+              test.setFillColor(sf::Color::Black);
+              test.setOutlineColor(sf::Color::White);
+              test.setOutlineThickness(0.5);
+              test.setPosition(25, 100);
+              test.setCharacterSize(18);
+              test.setString("Inhalation\n ~~Vaporization; often dab or concentrates\n ~~Joints\n ~~Blunts\n ~~Hand pipes/one hitters\n ~~Water Pipes -> Bongs/Bubblers\n Oral Consumption\n ~~Edibles\n ~~Ingestible oils/capsules\n");
+              window.draw(test);
+              window.display();
+              while(window.pollEvent(event)) {
+                if(event.type == sf::Event::Closed) {
+                  window.close();
+                }
+                if (sf::Event::MouseButtonPressed) {
+                  if (isMouseOver(window, home)) {
+                    home.setFillColor(sf::Color::Black);
+                    if (event.mouseButton.button == sf::Mouse::Left) {
+                      count++;
+                      break;
+                    }
+                  } else {
+                        home.setFillColor(sf::Color::White);
+                  }
+                }
+              }
+              if (count > 0) {
+                window.clear(sf::Color(137, 197, 125));
+                break;
+              }
+            }
+          }
+        } else {
+            waysofuse.setFillColor(sf::Color::White);
         }
       }
     }
